@@ -1,2 +1,4 @@
-package com.codeclan.example.coursebookingsystem.models;public class Course {
+package com.codeclan.example.coursebookingsystem.models;
+
+public class Course {
 }

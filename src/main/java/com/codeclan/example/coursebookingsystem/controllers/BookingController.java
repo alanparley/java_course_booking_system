@@ -1,2 +1,4 @@
-package com.codeclan.example.coursebookingsystem.controllers;public class BookingController {
+package com.codeclan.example.coursebookingsystem.controllers;
+
+public class BookingController {
 }

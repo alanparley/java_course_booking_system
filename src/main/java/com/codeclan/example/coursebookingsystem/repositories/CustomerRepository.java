@@ -1,2 +1,4 @@
-package com.codeclan.example.coursebookingsystem.repositories;public class CustomerRepository {
+package com.codeclan.example.coursebookingsystem.repositories;
+
+public class CustomerRepository {
 }
