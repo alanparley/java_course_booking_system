@@ -1,7 +1,11 @@
 package com.codeclan.example.coursebookingsystem;
 
+import com.codeclan.example.coursebookingsystem.models.Booking;
 import com.codeclan.example.coursebookingsystem.models.Course;
+import com.codeclan.example.coursebookingsystem.models.Customer;
+import com.codeclan.example.coursebookingsystem.repositories.BookingRepository;
 import com.codeclan.example.coursebookingsystem.repositories.CourseRepository;
+import com.codeclan.example.coursebookingsystem.repositories.CustomerRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +24,12 @@ class CoursebookingsystemApplicationTests {
 	@Autowired
 	CourseRepository courseRepository;
 
+	@Autowired
+	CustomerRepository customerRepository;
+
+	@Autowired
+	BookingRepository bookingRepository;
+
 	@Test
 	void contextLoads() {
 	}
@@ -28,5 +38,11 @@ class CoursebookingsystemApplicationTests {
 	public void canGetCoursesByRating() {
 		List<Course> foundCourses = courseRepository.findCoursesByRating(1);
 		assertEquals(1, foundCourses.size());
+	}
+
+	@Test
+	public void canGetCustomersByCourseName() {
+		List<Customer> foundCustomers = customerRepository.findCustomersByBookingsCourseName("Woodworking");
+		assertEquals(2, foundCustomers.size());
 	}
 }
