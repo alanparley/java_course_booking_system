@@ -45,4 +45,10 @@ class CoursebookingsystemApplicationTests {
 		List<Customer> foundCustomers = customerRepository.findCustomersByBookingsCourseName("Woodworking");
 		assertEquals(2, foundCustomers.size());
 	}
+
+	@Test
+	public void canGetCoursesByCustomerName(){
+		List<Course> foundCourses = courseRepository.findCoursesByBookingsCustomerName("Ann Other");
+		assertEquals(1, foundCourses.size());
+	}
 }

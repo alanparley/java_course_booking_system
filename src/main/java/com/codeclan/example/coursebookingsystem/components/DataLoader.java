@@ -26,13 +26,13 @@ public class DataLoader implements ApplicationRunner {
     public DataLoader(){}
 
     public void run(ApplicationArguments args){
-        Customer alan = new Customer("Alan Parley", "Edinburgh", 43);
+        Customer alan = new Customer("Alan", "Edinburgh", 43);
         customerRepository.save(alan);
 
-        Customer andrew = new Customer("Andrew Carndawg", "Edinburgh", 28);
+        Customer andrew = new Customer("Andrew", "Edinburgh", 28);
         customerRepository.save(andrew);
 
-        Customer ann = new Customer("Ann Other", "Edinburgh", 48);
+        Customer ann = new Customer("Ann", "Edinburgh", 48);
         customerRepository.save(ann);
 
         Course woodwork = new Course ("Woodworking", "Edinburgh", 4 );
