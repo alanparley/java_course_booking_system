@@ -29,4 +29,9 @@ public class BookingController {
         Booking newBooking = bookingRepository.save(booking);
         return new ResponseEntity<>(newBooking, HttpStatus.CREATED);
     }
+
+    @GetMapping(value = "/bookings/{id}")
+    public ResponseEntity getBooking(@PathVariable Long id){
+        return new ResponseEntity(bookingRepository.findById(id), HttpStatus.OK);
+    }
 }

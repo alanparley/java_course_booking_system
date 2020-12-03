@@ -32,6 +32,12 @@ public class CourseController {
             return new ResponseEntity<List<Course>>(courseRepository.findAll(), HttpStatus.OK);
         }
 
+
+    @GetMapping(value = "/courses/{id}")
+    public ResponseEntity getCourse(@PathVariable Long id){
+        return new ResponseEntity(courseRepository.findById(id), HttpStatus.OK);
+    }
+
         @PostMapping(value="/courses")
         public ResponseEntity<Course> postCourse(@RequestBody Course course){
             Course newCourse = courseRepository.save(course);
