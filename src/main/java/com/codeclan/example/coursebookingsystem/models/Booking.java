@@ -18,7 +18,7 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name="customer_id", nullable = false)
-    @JsonBackReference
+    @JsonIgnoreProperties({"bookings"})
     private Customer customer;
 
     @ManyToOne
