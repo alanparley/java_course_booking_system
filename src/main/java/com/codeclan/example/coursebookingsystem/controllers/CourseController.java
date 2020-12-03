@@ -26,7 +26,7 @@ public class CourseController {
             }
 
             if (name != null){
-                return new ResponseEntity<>(courseRepository.findCoursesByBookingsCustomerName(name), HttpStatus.OK);
+                return new ResponseEntity<>(courseRepository.findCoursesByBookingsCustomerNameIgnoreCase(name), HttpStatus.OK);
             }
 
             return new ResponseEntity<List<Course>>(courseRepository.findAll(), HttpStatus.OK);

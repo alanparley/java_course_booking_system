@@ -21,12 +21,12 @@ public class CustomerController {
     public ResponseEntity<List<Customer>> getAllCustomers(@RequestParam(name="course-name", required = false) String courseName, @RequestParam (name = "town", required = false) String town){
 
         if (town !=null && courseName != null){
-            return new ResponseEntity<>(customerRepository.findCustomersByTownAndBookingsCourseName(town, courseName), HttpStatus.OK);
+            return new ResponseEntity<>(customerRepository.findCustomersByTownAndBookingsCourseNameIgnoreCase(town, courseName), HttpStatus.OK);
 
         }
 
         if(courseName != null){
-            return new ResponseEntity<>(customerRepository.findCustomersByBookingsCourseName(courseName), HttpStatus.OK);
+            return new ResponseEntity<>(customerRepository.findCustomersByBookingsCourseNameIgnoreCase(courseName), HttpStatus.OK);
         }
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }
