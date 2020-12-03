@@ -2,13 +2,12 @@ package com.codeclan.example.coursebookingsystem.controllers;
 
 
 import com.codeclan.example.coursebookingsystem.models.Course;
+import com.codeclan.example.coursebookingsystem.models.Customer;
 import com.codeclan.example.coursebookingsystem.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +30,11 @@ public class CourseController {
             }
 
             return new ResponseEntity<List<Course>>(courseRepository.findAll(), HttpStatus.OK);
+        }
+
+        @PostMapping(value="/courses")
+        public ResponseEntity<Course> postCourse(@RequestBody Course course){
+            Course newCourse = courseRepository.save(course);
+            return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
         }
     }

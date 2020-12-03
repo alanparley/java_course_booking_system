@@ -5,9 +5,7 @@ import com.codeclan.example.coursebookingsystem.repositories.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,10 @@ public class BookingController {
         }
 
         return new ResponseEntity<List<Booking>>(bookingRepository.findAll(), HttpStatus.OK);
+    }
+    @PostMapping(value="/bookings")
+    public ResponseEntity<Booking> postBooking(@RequestBody Booking booking){
+        Booking newBooking = bookingRepository.save(booking);
+        return new ResponseEntity<>(newBooking, HttpStatus.CREATED);
     }
 }

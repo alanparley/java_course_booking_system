@@ -6,9 +6,7 @@ import com.codeclan.example.coursebookingsystem.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,11 @@ public class CustomerController {
             return new ResponseEntity<>(customerRepository.findCustomersByBookingsCourseName(courseName), HttpStatus.OK);
         }
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping(value="/customers")
+    public ResponseEntity<Customer> postCustomer(@RequestBody Customer customer){
+        Customer newCustomer = customerRepository.save(customer);
+        return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);
     }
 }
