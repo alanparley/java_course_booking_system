@@ -1,5 +1,8 @@
 package com.codeclan.example.coursebookingsystem.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,10 +18,12 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name="customer_id", nullable = false)
+    @JsonBackReference
     private Customer customer;
 
     @ManyToOne
     @JoinColumn(name="course_id", nullable = false)
+    @JsonIgnoreProperties({"bookings"})
     private Course course;
 
     public Booking(String date, Customer customer, Course course) {

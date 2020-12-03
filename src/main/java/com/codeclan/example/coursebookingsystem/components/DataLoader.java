@@ -9,7 +9,9 @@ import com.codeclan.example.coursebookingsystem.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DataLoader implements ApplicationRunner {
 
     @Autowired
@@ -27,7 +29,7 @@ public class DataLoader implements ApplicationRunner {
         Customer alan = new Customer("Alan Parley", "Edinburgh", 43);
         customerRepository.save(alan);
 
-        Customer andrew = new Customer("Andrew Carndog", "Edinburgh", 28);
+        Customer andrew = new Customer("Andrew Carndawg", "Edinburgh", 28);
         customerRepository.save(andrew);
 
         Customer ann = new Customer("Ann Other", "Edinburgh", 48);

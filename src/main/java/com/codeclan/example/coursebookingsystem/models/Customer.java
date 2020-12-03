@@ -1,5 +1,8 @@
 package com.codeclan.example.coursebookingsystem.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ public class Customer {
     private int age;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @JsonIgnoreProperties({"customers"})
     private List<Booking> bookings;
 
     public Customer(String name, String town, int age) {
@@ -30,6 +34,8 @@ public class Customer {
         this.age = age;
         this.bookings = new ArrayList<>();
     }
+
+    public Customer(){}
 
     public Long getId() {
         return id;
